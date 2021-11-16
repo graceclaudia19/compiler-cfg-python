@@ -2,25 +2,11 @@ def pyToStr(file):
     with open(file) as f:
         lines = f.readlines()
         element = []
+        symbols = ['(', ')','[',']','+','-','*',':','/', '>','<' ,'"',"'",',','.','%','=']
         for line in lines:
             #mereplace string dri beberapa symbol agar dapat di split dengan space 
-            line = line.replace('(',' ( ')
-            line = line.replace(')',' ) ')
-            line = line.replace('[',' [ ')
-            line = line.replace(']',' ] ')
-            line = line.replace('+',' + ')
-            line = line.replace('-',' - ')
-            line = line.replace('*',' * ')
-            line = line.replace(':',' : ')
-            line = line.replace('/',' / ')
-            line = line.replace('>',' > ')
-            line = line.replace('<',' < ')
-            line = line.replace('"',' " ')
-            line = line.replace("'"," ' ")
-            line = line.replace(',',' , ')
-            line = line.replace('.',' . ')
-            line = line.replace('%',' % ')
-            line = line.replace('=',' = ')
+            for symbol in symbols:
+                line = line.replace(symbol, " "+symbol+" ")
             line = line.split()
             element.append(line)
         return element
