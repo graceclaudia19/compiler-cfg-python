@@ -1,3 +1,4 @@
+#FUNCTION PENGUBAHAN PYTHON KE STRING
 def pyToStr(file):
     with open(file) as f:
         lines = f.readlines()
@@ -13,4 +14,3 @@ def pyToStr(file):
 
 file = 'function.txt'
 print(pyToStr(file))
-

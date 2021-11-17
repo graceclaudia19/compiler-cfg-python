@@ -1,3 +1,4 @@
+#FUNCTION PENGECEKAN NAMA VARIABEL
 def varChecker(varName):
     # pengecekan huruf pertama dari nama variabel (hanya boleh huruf dan _ )
     if (varName[0] == '_' or (ord(varName[0])>65 and ord(varName[0])<122)):
