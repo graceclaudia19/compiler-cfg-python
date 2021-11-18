@@ -23,6 +23,12 @@ def get_key(gramParsed, value, elementM):
                     elementM.append(key)
     return elementM
 
+def displayMatrix (matrix):
+    for i in range (len(matrix)):
+        for j in range (len(matrix[0])):
+            print(matrix[i][j], end= " ")
+        print()
+
 def cykalgo(gramParsed, word):
     table = [ [ '' for i in range(len(word)) ] for j in range(len(word)+1) ]
     blank = 0
@@ -98,6 +104,7 @@ gram = grammarParse('grammar.txt')
 word = "baaba"
 table = cykalgo(gram,word)
 
+displayMatrix(table)
 top = table[len(word)][0]
 for i in top:
     if i == 'S':
