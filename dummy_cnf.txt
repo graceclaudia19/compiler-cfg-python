@@ -1,0 +1,16 @@
+A_rule -> a
+B_rule -> b
+S -> A S_rule
+S_rule -> S B
+S -> A S
+S -> S B
+A -> A_rule A_rule1
+A_rule1 -> A S
+A -> a
+A -> A_rule S
+B -> S B_rule_rule
+B_rule_rule -> B_rule S
+B -> B_rule B_rule
+B -> A_rule A_rule1
+B -> a
+B -> A_rule S
