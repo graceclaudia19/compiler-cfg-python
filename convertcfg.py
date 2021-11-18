@@ -32,7 +32,6 @@ def getTerminals(filename):
         termRules.append([rule, terminal])
     return terminals, termRules
 
-
 def removeUnitProd(cfg, terminals):
     delete = []
     for prod in cfg:
@@ -56,7 +55,6 @@ def getRule(terminal, rules):
         if (rule[1] == terminal):
             return rule[0]
 
-# masi deprecated tp ywdlaya :v
 def checkRHS(cfg, terminals, rules):
     count = 1
     idx = 1
@@ -112,28 +110,3 @@ def convertCFG(filename):
     return
 
 convertCFG("dummy_cfg.txt")
-
-'''
-# ... ini gaperlu kan ya harusnya ?? :V kl trnyata butuh nnt tinggal ubah
-def removeNullProd(grammar):
-    print("\n\n")
-    nullprod = []
-    for prod in grammar:
-        if (prod[1] == 'e'):
-            nullprod.append(prod) # get null prod elmts
-
-    for prod in nullprod:
-        for rhs in grammar:
-            if (rhs[1] == prod[0]):
-                nullprod.append(rhs)
-
-    for prod in nullprod:
-        for rhs in grammar:
-            if ((prod[0] in rhs[1]) and (len(rhs[1]) > 1)):
-                newprod = rhs[1].replace(prod[0], '')
-                grammar.append([rhs[0], newprod])
-    for prod in nullprod:
-        if (prod[1] == 'e'):
-            grammar.remove(prod)
-    return grammar
-'''
