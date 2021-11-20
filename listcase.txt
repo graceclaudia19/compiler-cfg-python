@@ -1,0 +1,14 @@
+- File processing
+- Looping yang gaada range
+- importing dependencies
+- end = ""
+- Error Types
+- Scientific Numbering in Python
+- Bitwise Operators (terutama OR)
+- global?
+- COBA ERROR CASES
+
+
+
+error type uda
+

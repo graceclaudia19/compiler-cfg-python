@@ -1,2 +1,3 @@
-a = "lololol"
-print(a[1:10])
+from convertcfg import *
+
+convertCFG('CFG.txt')

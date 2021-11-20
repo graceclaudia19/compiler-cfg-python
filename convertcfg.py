@@ -84,11 +84,11 @@ def checkRHS(cfg, terminals, rules):
     return cfg
 
 def convertCFG(filename):
-    file = open("dummy_cnf.txt", 'w')
+    file = open("CNF.txt", 'w')   #change
     cfg = getCFG(filename)
     print("INITIAL CFG:")
     print(cfg)
-    terminals, rules = getTerminals("dummy_terminal.txt")
+    terminals, rules = getTerminals("terminal.txt")   #change
     print("\nTERMINALS:")
     print(terminals)
     cfg = removeUnitProd(cfg, terminals)
@@ -109,4 +109,4 @@ def convertCFG(filename):
     print("\nCHECK DUMMY_CNF.TXT")
     return
 
-convertCFG("dummy_cfg.txt")
+# convertCFG("dummy_cfg.txt")
