@@ -50,5 +50,3 @@ SELF -> self
 ERROR -> ValueError | TypeError | ZeroDivisionError | ImportError | NameError
 IMPORT_STATES -> IMPORT WORD | IMPORT WORD AS WORD | FROM WORD IMPORT WORD | FROM WORD IMPORT WORD AS WORD
 WORD -> word
-
-

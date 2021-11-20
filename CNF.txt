@@ -1,0 +1,135 @@
+PRINT_rule -> print
+WORD_rule -> word
+AND_rule -> and
+OR_rule -> or
+NOT_rule -> not
+TRUE_rule -> True
+FALSE_rule -> False
+NONE_rule -> None
+IS_rule -> is
+IMPORT_rule -> import
+FROM_rule -> from
+AS_rule -> as
+DEF_rule -> def
+RETURN_rule -> return
+CLASS_rule -> class
+SELF_rule -> self
+WITH_rule -> with
+OPEN_rule -> open
+READ_rule -> read
+WRITE_rule -> write
+!_rule -> !
+'_rule -> '
+"_rule -> "
+#_rule -> #
++_rule -> +
+-_rule -> -
+*_rule -> *
+/_rule -> /
+%_rule -> %
+&_rule -> &
+^_rule -> ^
+~_rule -> ~
+{_rule -> {
+}_rule -> }
+(_rule -> (
+)_rule -> )
+[_rule -> [
+]_rule -> ]
+._rule -> .
+,_rule -> ,
+:_rule -> :
+>_rule -> >
+<_rule -> <
+=_rule -> =
+IF_rule -> if
+ELIF_rule -> elif
+ELSE_rule -> else
+IN_rule -> in
+FOR _rule -> for 
+RANGE_rule -> range
+WHILE_rule -> while
+CONTINUE_rule -> continue
+BREAK_rule -> break
+PASS_rule -> pass
+RAISE_rule -> raise
+VALUEERROR_rule -> ValueError
+ZERODIVISIONERROR_rule -> ZeroDivisionError
+IMPORTERROR_rule -> ImportError
+NAMEERROR_rule -> NameError
+TYPEERROR_rule -> TypeError
+PYTHON -> PYTHON PYTHON
+EXCLAMATION -> !
+SINGLE_QUOTE -> '
+DOUBLE_QUOTE -> "
+TAG -> #
+PLUS -> +
+MINUS -> -
+MULTIPLY -> *
+DIV -> /
+MOD -> %
+BITWISE_AND -> &
+BITWISE_XOR -> ^
+BITWISE_NEG -> ~
+POWER -> MULTIPLY MULTIPLY
+CURLY_OPEN -> {
+CURLY_CLOSE -> }
+REGULAR_OPEN -> (
+REGULAR_CLOSE -> )
+SQUARE_OPEN -> [
+SQUARE_CLOSE -> ]
+PERIOD -> .
+COMMA -> ,
+COLON -> :
+GREATER_THAN -> >
+LESS_THAN -> <
+EQ -> =
+BOOLEAN -> True
+BOOLEAN -> False
+IS -> <- IS_rule
+IF -> if
+ELIF -> elif
+ELSE -> else
+IN -> in
+WHILE -> while
+BREAK -> break
+PASS -> pass
+FROM -> from
+IMPORT -> import
+AS -> as
+WITH -> with
+OPEN -> open
+READ -> read
+WRITE -> write
+WORD -> word
+STRING -> WORD STRING
+STRING -> STRING WORD
+CLASS -> class
+SELF -> self
+ERROR -> ValueError
+ERROR -> TypeError
+ERROR -> ZeroDivisionError
+ERROR -> ImportError
+ERROR -> NameError
+IMPORT_STATES -> IMPORT WORD
+IMPORT_STATES -> IMPORT WORD_rule1
+WORD_rule1 -> WORD AS_rule1
+AS_rule1 -> AS WORD
+IMPORT_STATES -> FROM WORD_rule1
+WORD_rule1 -> WORD IMPORT_rule1
+IMPORT_rule1 -> IMPORT WORD
+IMPORT_STATES -> FROM WORD_rule1
+WORD_rule1 -> WORD IMPORT_rule1
+IMPORT_rule1 -> IMPORT WORD_rule1
+WORD_rule1 -> WORD AS_rule1
+WORD -> word
+PYTHON -> MULTIPLY MULTIPLY
+PYTHON -> True
+PYTHON -> False
+PYTHON -> ValueError
+PYTHON -> TypeError
+PYTHON -> ZeroDivisionError
+PYTHON -> ImportError
+PYTHON -> NameError
+STRING -> word
+STRING -> word

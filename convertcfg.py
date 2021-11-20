@@ -66,11 +66,13 @@ def checkRHS(cfg, terminals, rules):
                         prod[i] = getRule(prod[i], rules)
     for prod in cfg:
         if (len(prod) > 3):
+            print(prod)
             rule = []
             for i in range(2, len(prod)):
                 rule.append(prod[i])
             for i in range(2, len(prod)):
                 prod.pop()
+            print(rule[0])
             newvar = rule[0] + "_rule"
             for elmts in cfg:
                 if (newvar in elmts[0]):
@@ -84,19 +86,21 @@ def checkRHS(cfg, terminals, rules):
     return cfg
 
 def convertCFG(filename):
-    file = open("CNF.txt", 'w')   #change
+    file = open("CNF.txt", 'w')
     cfg = getCFG(filename)
     print("INITIAL CFG:")
     print(cfg)
-    terminals, rules = getTerminals("terminal.txt")   #change
+    terminals, rules = getTerminals("terminal.txt")
     print("\nTERMINALS:")
     print(terminals)
     cfg = removeUnitProd(cfg, terminals)
     print("\nAFTER UNIT PRODUCTION REMOVAL:")
     print(cfg)
-    cfg.append(rules)
+    for rule in rules:
+        cfg.append(rule)
     cfg = checkRHS(cfg, terminals, rules)
-    cfg.remove(rules)
+    for rule in rules:
+        cfg.remove(rule)
     print("\nAFTER CONVERTING TO CNF (terminal rules not included):")
     print(cfg)
     for prod in rules:
@@ -106,7 +110,7 @@ def convertCFG(filename):
         str = (' '.join(prod)).replace(' ', ' -> ', 1)
         file.write(str + "\n")
     file.close()
-    print("\nCHECK DUMMY_CNF.TXT")
+    print("\nCHECK CNF.TXT")
     return
 
-# convertCFG("dummy_cfg.txt")
+convertCFG("CFG.txt")
