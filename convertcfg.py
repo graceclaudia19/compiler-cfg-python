@@ -113,4 +113,4 @@ def convertCFG(filename):
     print("\nCHECK CNF.TXT")
     return
 
-convertCFG("CFG.txt")
+#convertCFG("CFG.txt")
