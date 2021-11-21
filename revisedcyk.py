@@ -55,7 +55,7 @@ def cykalgo(gramParsed, word):
                 str = word[j:j+i]
                 #dalam indexing string, jika mis: [a:b] jika b melebihi len dari str tersebut akan ttp keluar dgn elemen yang kurang dri semestinya
                 if len(str) == i:
-                    print("string",str)
+                    # print("string",str)
                     #jika string sesuai
                     #mencari substring dri string
                     substrings = []
@@ -71,45 +71,53 @@ def cykalgo(gramParsed, word):
                         
                         #pengecekan apabila substring tidak kosong atau tidak sama panjangnya dengan kata aslinya
                         if (len(front)!=0 and len(other)!=0 and len(front)!=i and len(other)!=i):
-                            print("front", front)
-                            print("other", other)
-                            # frontJoin = "".joint(front)
-                            # otherJoin = "".joint(other)
+                            # print("front", front)
+                            # print("other", other)
                             substrings.append(front)
                             substrings.append(other)
                         #penambahan x setiap kali menambah panjang substring depan
                         x+=1
-                        print("substrings")
+                        # print("substrings")
 
-                        print(substrings)
+                        # print(substrings)
                     #untuk setiap substring akan di iterate dan dicari terminalnya
                     for sub in range (0,len(substrings),2):
                         keySubstr = []
-                        print("keyRules",keyRules)
-                        print(len(substrings[sub][0]))
+                        # print("keyRules",keyRules)
+                        # print(len(substrings[sub][0]))
+                    
+                        #pengecekan apakah elemen FRONT dari substring lebih dari 1 atau tidak, jika iya maka akan di join untuk pembacaan
+                        #pengecekan apakah elemen OTHER dari substring lebih dari 1 atau tidak, jika iya maka akan di join untuk pembacaan
+
+                        #kondisi front lebih dri 1
                         if (len(substrings[sub])!=1):
+                            #dijoin
                             sub1join = "".join(substrings[sub])
+                            #dicari key nya
                             keySubstr.append(keyRules[sub1join])
-                            print("goblok")
-                            print(sub1join)
+                            #kondisi other lebih dari 1
                             if (substrings[sub+1][0]!=1):   
                                 sub2join = "".join(substrings[sub+1])
                                 keySubstr.append(keyRules[sub2join]) 
+                            #kondisi other 1
                             else:
                                 keySubstr.append(keyRules[substrings[sub+1][0]])
+                        #kondisi front 1
                         else:
                             keySubstr.append(keyRules[substrings[sub][0]])
+                            #kondisi other lebih dari 1
                             if (substrings[sub+1]!=1):
                                 sub2join = "".join(substrings[sub+1])
                                 keySubstr.append(keyRules[sub2join])
+                            #kondisi other 1
                             else:
                                 keySubstr.append(keyRules[substrings[sub+1][0]])
-                        print("keysubstr")
-                        print(keySubstr)
+                        # print("keysubstr")
+                        # print(keySubstr)
                         # perkalian silang antar parsingan elemen misalnya BA dan BC
                         elements = [a+b for a in keySubstr[0] for b in keySubstr[1]]
                         for el in elements:
-                            print("element",el)
+                            # print("element",el)
                             # dengan menggunakan join mencari apakah ada key value
                             keyJoin = "".join(el)
                             # print("keyjoin", keyJoin)
@@ -130,9 +138,9 @@ def cykalgo(gramParsed, word):
                         # menambahkan info terminal elemen tersebut untuk elemen selanjutnya
                     strJoin = "".join(str)
                     keyRules[strJoin] = elementM
-                    print("elementM")
-                    print(elementM)
-                    print(keyRules)
+                    # print("elementM")
+                    # print(elementM)
+                    # print(keyRules)
     return table
 
 gram = grammarParse('grammar.txt')
