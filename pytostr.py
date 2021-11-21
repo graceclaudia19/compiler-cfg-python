@@ -12,5 +12,5 @@ def pyToStr(file):
             element.append(line)
         return element
 
-file = 'function.txt'
-print(pyToStr(file))
+# file = 'function.py'
+# print(pyToStr(file))

@@ -5,6 +5,8 @@ def getCFG(filename):
     i = 0
     cfg = []
     for line in lines:
+        if (line.startswith('/*') and line.endswith('*/\n')) or line == '\n':
+            continue
         line = line.replace(' -> ', ' ').replace('\n', '')
         wpw = line.split()
         if ('|' in wpw):
@@ -66,13 +68,13 @@ def checkRHS(cfg, terminals, rules):
                         prod[i] = getRule(prod[i], rules)
     for prod in cfg:
         if (len(prod) > 3):
-            print(prod)
+            # print(prod)
             rule = []
             for i in range(2, len(prod)):
                 rule.append(prod[i])
             for i in range(2, len(prod)):
                 prod.pop()
-            print(rule[0])
+            # print(rule[0])
             newvar = rule[0] + "_rule"
             for elmts in cfg:
                 if (newvar in elmts[0]):
@@ -88,21 +90,21 @@ def checkRHS(cfg, terminals, rules):
 def convertCFG(filename):
     file = open("CNF.txt", 'w')
     cfg = getCFG(filename)
-    print("INITIAL CFG:")
-    print(cfg)
+    # print("INITIAL CFG:")
+    # print(cfg)
     terminals, rules = getTerminals("terminal.txt")
-    print("\nTERMINALS:")
-    print(terminals)
+    # print("\nTERMINALS:")
+    # print(terminals)
     cfg = removeUnitProd(cfg, terminals)
-    print("\nAFTER UNIT PRODUCTION REMOVAL:")
-    print(cfg)
+    # print("\nAFTER UNIT PRODUCTION REMOVAL:")
+    # print(cfg)
     for rule in rules:
         cfg.append(rule)
     cfg = checkRHS(cfg, terminals, rules)
     for rule in rules:
         cfg.remove(rule)
-    print("\nAFTER CONVERTING TO CNF (terminal rules not included):")
-    print(cfg)
+    # print("\nAFTER CONVERTING TO CNF (terminal rules not included):")
+    # print(cfg)
     for prod in rules:
         str = (' -> '.join(prod))
         file.write(str + "\n")
@@ -110,7 +112,7 @@ def convertCFG(filename):
         str = (' '.join(prod)).replace(' ', ' -> ', 1)
         file.write(str + "\n")
     file.close()
-    print("\nCHECK CNF.TXT")
+    # print("\nCHECK CNF.TXT")
     return
 
-#convertCFG("CFG.txt")
+convertCFG("CFG.txt")
