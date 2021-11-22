@@ -1,0 +1,9 @@
+1. jadiin list 
+2. list baca terminal.txt
+gada di terminal: 
+3. "ininyadoang" -> word
+3. namavar-> word
+    namavar -> varchecker -> false -> terminate cykalgo di main 
+4. 1234 -> num 
+
+
