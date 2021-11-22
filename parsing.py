@@ -112,28 +112,34 @@ def strCheckNumVar(list, gram):
         idxArr+=1
     return list
 
+def mergeList(list):
+    l = []
+    for i in range (len(list)): 
+        l+=list[i]
+    return l
+
                 
 
         
 
 # KALO DIA GAGAL DI SATU TEMPAT DIA LANGSUNG KEMBALIIN LIST KOSONG -> END PROGRAM DI MAIN
 
-file = "function.py"
-list = pyToStr(file)
+# file = "function.py"
+# list = pyToStr(file)
 
-print("original list")
-print(list)
+# print("original list")
+# print(list)
 
-print("list without ' ")
-list1 = strCheckOneTick(list)
-print(list1)
+# print("list without ' ")
+# list1 = strCheckOneTick(list)
+# print(list1)
 
-print('list without " ')
-list2 = strCheckTwoTick(list1)
-print(list2)
+# print('list without " ')
+# list2 = strCheckTwoTick(list1)
+# print(list2)
 
-gram = grammarParse('CNF.txt') 
-strcyk = strCheckNumVar(list2, gram)
-print(strcyk)
+# gram = grammarParse('CNF.txt') 
+# strcyk = strCheckNumVar(list2, gram)
+# print(strcyk)
 
 

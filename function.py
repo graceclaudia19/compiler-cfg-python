@@ -1,4 +1,2 @@
-def my_function(fname):
-  x = 300
-  print(fname + " refsnes")
-  print('lalal-"a')
+def myfunc(n):
+    return (n - 50)

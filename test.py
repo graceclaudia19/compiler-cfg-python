@@ -1,3 +1,4 @@
+#JGN GANGGU PNY GC
 list = [['def', 'my_function', '(', 'fname', ')', ':'], ['x', '=', '300'], ['print', '(', 'fname', '+', '"', 'refsnes', '"', ')']]
 # , ['print', '(', 'fname', '+', '"', 'refsnes', '"', ')'], ['print', '(', "'", 'lalala', "'", ')']
 

@@ -147,13 +147,13 @@ def cykalgo(gramParsed, word):
     return table
 
 # word = ["b","a","a","b","a"]
-gram = grammarParse('CNF.txt')
-word = ['word', '=', 'num', 'elif', '(', 'word', '=', '=', 'num', ')', ':', 'print', '(', '"', 'word', '"', ')']
-table = cykalgo(gram,word)
+# gram = grammarParse('CNF.txt')
+# word = ['word', '=', 'num', 'elif', '(', 'word', '=', '=', 'num', ')', ':', 'print', '(', '"', 'word', '"', ')']
+# table = cykalgo(gram,word)
 
-displayMatrix(table)
-top = table[len(word)][0]
-for i in top:
-    if i == 'MAIN_STATES':
-        print("yey di acc")
-print("bye")
+# displayMatrix(table)
+# top = table[len(word)][0]
+# for i in top:
+#     if i == 'MAIN_STATES':
+#         print("yey di acc")
+# print("bye")
