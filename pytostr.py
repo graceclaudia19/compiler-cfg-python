@@ -3,7 +3,7 @@ def pyToStr(file):
     with open(file) as f:
         lines = f.readlines()
         element = []
-        symbols = ['(', ')','[',']','+','-','*',':','/', '>','<' ,'"',"'",',','.','%','=','!']
+        symbols = ['(', ')','[',']','{','}','+','-','*',':','/', '>','<' ,'"',"'",',','.','%','=','!']
         for line in lines:
             #mereplace string dri beberapa symbol agar dapat di split dengan space 
             for symbol in symbols:
