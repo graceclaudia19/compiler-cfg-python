@@ -39,7 +39,7 @@ input
 ]
 (
 )
-{    
+{
 }
 =
 >
@@ -61,3 +61,4 @@ ZeroDivisionError
 ImportError
 NameError
 TypeError
+Exception
