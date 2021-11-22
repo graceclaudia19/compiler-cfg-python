@@ -4,7 +4,10 @@ def grammarParse(grammar):
         lines = f.readlines()
         for line in lines:
             line = line.split('->')
-            gram[line[0].strip()] = [i.strip() for i in line[1].replace('\n','').split('|')]
+            if (line[0].strip() in gram.keys()):
+                gram[line[0].strip()] += [line[1].replace('\n','').strip()]
+            else:
+                gram[line[0].strip()] = [line[1].replace('\n','').strip()]
     return gram
 
 def check_value_grammar(gramParsed, value):
@@ -92,12 +95,12 @@ def cykalgo(gramParsed, word):
                         #kondisi front lebih dri 1
                         if (len(substrings[sub])!=1):
                             #dijoin
-                            sub1join = "".join(substrings[sub])
+                            sub1join = " ".join(substrings[sub])
                             #dicari key nya
                             keySubstr.append(keyRules[sub1join])
                             #kondisi other lebih dari 1
                             if (substrings[sub+1][0]!=1):   
-                                sub2join = "".join(substrings[sub+1])
+                                sub2join = " ".join(substrings[sub+1])
                                 keySubstr.append(keyRules[sub2join]) 
                             #kondisi other 1
                             else:
@@ -107,7 +110,7 @@ def cykalgo(gramParsed, word):
                             keySubstr.append(keyRules[substrings[sub][0]])
                             #kondisi other lebih dari 1
                             if (substrings[sub+1]!=1):
-                                sub2join = "".join(substrings[sub+1])
+                                sub2join = " ".join(substrings[sub+1])
                                 keySubstr.append(keyRules[sub2join])
                             #kondisi other 1
                             else:
@@ -115,11 +118,11 @@ def cykalgo(gramParsed, word):
                         # print("keysubstr")
                         # print(keySubstr)
                         # perkalian silang antar parsingan elemen misalnya BA dan BC
-                        elements = [a+b for a in keySubstr[0] for b in keySubstr[1]]
+                        elements = [a+" "+b for a in keySubstr[0] for b in keySubstr[1]]
                         for el in elements:
                             # print("element",el)
                             # dengan menggunakan join mencari apakah ada key value
-                            keyJoin = "".join(el)
+                            keyJoin = " ".join(el)
                             # print("keyjoin", keyJoin)
                             # jika value ada di grammar
                             if (check_value_grammar(rules, el)):
@@ -136,19 +139,21 @@ def cykalgo(gramParsed, word):
                     table[i][j] = elementM
                     # print(keyRules)
                         # menambahkan info terminal elemen tersebut untuk elemen selanjutnya
-                    strJoin = "".join(str)
+                    strJoin = " ".join(str)
                     keyRules[strJoin] = elementM
                     # print("elementM")
                     # print(elementM)
                     # print(keyRules)
     return table
 
-gram = grammarParse('grammar.txt')
-word = ["b","a","a","b","a"]
+# word = ["b","a","a","b","a"]
+gram = grammarParse('CNF.txt')
+word = ['word', '=', 'num', 'elif', '(', 'word', '=', '=', 'num', ')', ':', 'print', '(', '"', 'word', '"', ')']
 table = cykalgo(gram,word)
 
 displayMatrix(table)
 top = table[len(word)][0]
 for i in top:
-    if i == 'S':
+    if i == 'MAIN_STATES':
         print("yey di acc")
+print("bye")

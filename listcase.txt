@@ -15,7 +15,7 @@ error type uda
 SENTENCE WORD / WORD SENTENCE / BOTH
 endline things
 
-yg sala di kevin rizki
+yg sala di wkwk
 - print(1E12)
 - print(1>2) (DONE tinggal diimplement aja) 
 - print("blabla" , end = "")
