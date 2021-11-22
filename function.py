@@ -1,2 +1,4 @@
-def my_function():
-  print("Hello from a function")
+def my_function(fname):
+  x = 300
+  print(fname + " refsnes")
+  print('lalal-"a')
