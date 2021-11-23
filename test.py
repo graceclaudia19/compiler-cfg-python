@@ -60,21 +60,88 @@
 # y = removeCommentHashtag(x)
 # print(removeMultilineComment(y))
 
-from cyk import grammarParse
-from parsing import mergeList
+# from cyk import grammarParse
+# from parsing import mergeList
 
 
-def check_value_grammar(gramParsed, value):
-    exist = False
-    for key, values in gramParsed.items():
-        for val in values:
-            if val == value:
-                exist = True
-    return exist
+# def check_value_grammar(gramParsed, value):
+#     exist = False
+#     for key, values in gramParsed.items():
+#         for val in values:
+#             if val == value:
+#                 exist = True
+#     return exist
+
+# def varChecker(varName):
+#     # pengecekan huruf pertama dari nama variabel (hanya boleh huruf dan _ )
+#     if (varName[0] == '_' or (ord(varName[0])>65 and ord(varName[0])<122)):
+#         for i in range (1,len(varName)):
+#              # pengecekan sisa hurruf selain huruf pertama dari nama variabel menggunakan ascii value (hanya boleh huruf, _, dan angka )
+#             if not (varName[i]== "_" or (ord(varName[0])<=65) or (ord(varName[0])>=122) or (ord(varName[0])<=57) or (ord(varName[0])>=48)):
+#                 return False
+#         return True
+#     return False
+
+# def checkNumVar(list, gram):
+#     idx = 0
+#     for i in list:
+#         if not (check_value_grammar(gram, i)):
+#             isInt = True 
+#             try:
+#                 int(i)
+#             except:
+#                 isInt = False
+#             if (isInt):
+#                 list[idx] = "num"
+#             else:
+#                 if (varChecker(list[idx])):
+#                     list[idx] = "word"
+#                 else:
+#                     print(i)
+#                     return []
+#         idx+=1
+#     return list
+
+# def grammarParse(grammar):
+#     gram = {}
+#     with open(grammar) as f:
+#         lines = f.readlines()
+#         for line in lines:
+#             line = line.split('->')
+#             if (line[0].strip() in gram.keys()):
+#                 gram[line[0].strip()] += [line[1].replace('\n','').strip()]
+#             else:
+#                 gram[line[0].strip()] = [line[1].replace('\n','').strip()]
+#     return gram
+
+# def pyToStr(file):
+#     with open(file) as f:
+#         lines = f.readlines()
+#         element = []
+#         symbols = ['(', ')','[',']','{','}','+','-','*',':','/', '>','<' ,'"',"'",',','.','%','=','!','#',';']
+#         for line in lines:
+#             #mereplace string dri beberapa symbol agar dapat di split dengan space 
+#             for symbol in symbols:
+#                 line = line.replace(symbol, " "+symbol+" ")
+#             line = line.split()
+#             element.append(line)
+#         return element
+
+# def mergeList(list):
+#     l = []
+#     for i in range (len(list)): 
+#         l+=list[i]
+#     return l
+
+# x = pyToStr('function.py')
+# gram = grammarParse('CNF.txt')
+# print(x)
+# y = mergeList(x)
+# print(checkNumVar(y, gram))
 
 def varChecker(varName):
     # pengecekan huruf pertama dari nama variabel (hanya boleh huruf dan _ )
-    if (varName[0] == '_' or (ord(varName[0])>65 and ord(varName[0])<122)):
+    if (varName[0] == '_' or (ord(varName[0])>=65 and ord(varName[0])<=122)):
         for i in range (1,len(varName)):
              # pengecekan sisa hurruf selain huruf pertama dari nama variabel menggunakan ascii value (hanya boleh huruf, _, dan angka )
             if not (varName[i]== "_" or (ord(varName[0])<=65) or (ord(varName[0])>=122) or (ord(varName[0])<=57) or (ord(varName[0])>=48)):
@@ -82,60 +149,18 @@ def varChecker(varName):
         return True
     return False
 
-def checkNumVar(list, gram):
-    idx = 0
-    for i in list:
-        if not (check_value_grammar(gram, i)):
-            isInt = True 
-            try:
-                int(i)
-            except:
-                isInt = False
-            if (isInt):
-                list[idx] = "num"
-            else:
-                if (varChecker(list[idx])):
-                    list[idx] = "word"
-                else:
-                    print(i)
-                    return []
-        idx+=1
-    return list
+var1 = "abc"
+var2 = "_abc"
+var3 = "1abc"
+var4 = "$abc"
+var5 = "zbC_1"
+var6 = "aBc-1"
 
-def grammarParse(grammar):
-    gram = {}
-    with open(grammar) as f:
-        lines = f.readlines()
-        for line in lines:
-            line = line.split('->')
-            if (line[0].strip() in gram.keys()):
-                gram[line[0].strip()] += [line[1].replace('\n','').strip()]
-            else:
-                gram[line[0].strip()] = [line[1].replace('\n','').strip()]
-    return gram
+print("Testcase 1:", varChecker(var1))
+print("Testcase 2:", varChecker(var2))
+print("Testcase 3:", varChecker(var3))
+print("Testcase 4:", varChecker(var4))
+print("Testcase 5:", varChecker(var5))
+print("Testcase 6:", varChecker(var6))
 
-def pyToStr(file):
-    with open(file) as f:
-        lines = f.readlines()
-        element = []
-        symbols = ['(', ')','[',']','{','}','+','-','*',':','/', '>','<' ,'"',"'",',','.','%','=','!','#',';']
-        for line in lines:
-            #mereplace string dri beberapa symbol agar dapat di split dengan space 
-            for symbol in symbols:
-                line = line.replace(symbol, " "+symbol+" ")
-            line = line.split()
-            element.append(line)
-        return element
-
-def mergeList(list):
-    l = []
-    for i in range (len(list)): 
-        l+=list[i]
-    return l
-
-x = pyToStr('function.py')
-gram = grammarParse('CNF.txt')
-print(x)
-y = mergeList(x)
-print(checkNumVar(y, gram))
 
