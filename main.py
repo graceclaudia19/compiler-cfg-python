@@ -88,9 +88,9 @@ if __name__ == "__main__":
     else:
         print("Not accepted")
         if not(qMarksOne):
-            print("Invalid use of symbol ' ")
+            print('Invalid use of symbol " ') 
         elif not (qMarksTwo):
-            print('Invalid use of symbol " ')
+            print("Invalid use of symbol ' ")
         elif not (varCheck):
             print("Invalid variable name")
 
