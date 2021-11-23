@@ -21,15 +21,6 @@ if __name__ == "__main__":
     # CNF PARSINNG
     # terminate (returning empty list) if invalid varname or invalid use of ticks (' and "),
     # if all valid, it will return array and proceed to cyk algorithm
-    '''
-    file = False
-    while (not file):
-        filename = input("Masukkan nama file yang akan dicek dalam .txt/.py: ")
-        if (filename!=""):
-            file = True
-        else:
-            print("Silahkan masukkan nama file terlebih dahulu")
-    '''
 
     valid = True
     while (valid):
@@ -45,14 +36,14 @@ if __name__ == "__main__":
 
         qMarksTwo = True
         list4 = strCheckDoubleTick(list3)
-        if (list4 == []):
+        if (list4 == '.'):
             valid = False
             qMarksTwo = False
             break
 
         qMarksOne = True
         list5 = strCheckOneTick2(list4)
-        if (list5 == []):
+        if (list5 == '.'):
             valid = False
             qMarksOne = False
             break
@@ -63,7 +54,7 @@ if __name__ == "__main__":
 
         # print(list5)
         strcyk = checkNumVar(list5, gram)
-        if (list5 == []):
+        if (list5 == '.'):
             valid = False
             varCheck = False
             break

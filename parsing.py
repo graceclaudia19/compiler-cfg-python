@@ -76,7 +76,7 @@ def strCheckOneTick2(list):
         else:
             li.append(i)
     if (ticks):
-        li = []
+        li = '.'
     return li
 
             
@@ -116,7 +116,7 @@ def strCheckDoubleTick(list):
         else:
             li.append(i)
     if (ticks):
-        li = []
+        li = '.'
     return li
 
 
@@ -188,7 +188,7 @@ def checkNumVar(list, gram):
                     list[idx] = "word"
                 else:
                     # print(i)
-                    return []
+                    return '.'
         idx+=1
     return list
 
