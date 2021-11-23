@@ -62,6 +62,23 @@ def strCheckOneTick(list):
         l = []
     return l
 
+def strCheckOneTick2(list):
+    ticks = False
+    li = []
+    for i in list:
+        if i == "'":
+            ticks = not ticks
+            li.append(i)
+            if ticks:
+                li.append("word")
+        elif ticks:
+            pass
+        else:
+            li.append(i)
+    if (ticks):
+        li = []
+    return li
+
             
 
 #check " trus ganti jd word
@@ -84,6 +101,23 @@ def strCheckTwoTick(list):
     if (ticks):
         l = []
     return l
+
+def strCheckDoubleTick(list):
+    ticks = False
+    li = []
+    for i in list:
+        if i == '"':
+            ticks = not ticks
+            li.append(i)
+            if ticks:
+                li.append("word")
+        elif ticks:
+            pass
+        else:
+            li.append(i)
+    if (ticks):
+        li = []
+    return li
 
 
 # def strCheckNumVar(list, gram):

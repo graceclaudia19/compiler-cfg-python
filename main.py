@@ -40,17 +40,19 @@ if __name__ == "__main__":
         
         list2 = removeCommentHashtag(list)
 
+        list3 = removeMultilineComment(list2)
+
 
         qMarksTwo = True
-        list3 = strCheckTwoTick(list2)
-        if (list3 == []):
+        list4 = strCheckDoubleTick(list3)
+        if (list4 == []):
             valid = False
             qMarksTwo = False
             break
 
         qMarksOne = True
-        list4 = strCheckOneTick(list3)
-        if (list4 == []):
+        list5 = strCheckOneTick2(list4)
+        if (list5 == []):
             valid = False
             qMarksOne = False
             break
@@ -58,8 +60,6 @@ if __name__ == "__main__":
         varCheck = True
 
         gram = grammarParse(cnfInput) 
-
-        list5 = removeMultilineComment(list4)
 
         print(list5)
         strcyk = checkNumVar(list5, gram)
