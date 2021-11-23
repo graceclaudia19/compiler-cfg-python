@@ -37,23 +37,26 @@ if __name__ == "__main__":
         # check before parse process
         # print(list)
 
-        qMarksOne = True
-        list1 = strCheckOneTick(list)
-        if (list1 == []):
-            valid = False
-            qMarksOne = False
-            break
-
         qMarksTwo = True
-        list2 = strCheckTwoTick(list1)
-        if (list2 == []):
+        list1 = strCheckTwoTick(list)
+        if (list1 == []):
             valid = False
             qMarksTwo = False
             break
 
+        qMarksOne = True
+        list2 = strCheckOneTick(list1)
+        if (list2 == []):
+            valid = False
+            qMarksOne = False
+            break
+
+        list3 = removeCommentHashtag(list2)
+
+
         varCheck = True
         gram = grammarParse(cnfInput) 
-        strcyk = strCheckNumVar(list2, gram)
+        strcyk = strCheckNumVar(list3, gram)
         if (strcyk == []):
             valid = False
             varCheck = False
@@ -61,8 +64,10 @@ if __name__ == "__main__":
         break
 
     # check after parse
-    # print(list1) -> buat cek yang ganti ''
-    # print(list2) -> buat cek yang ganti ""
+    # buat cek yang ganti ''
+    print(list1) 
+    # buat cek yang ganti ""
+    print(list2) 
     # print(strcyk) -> buat cek yg ganti number sm var
 
     # CYK ALGORITHM

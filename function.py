@@ -1,2 +1,2 @@
-def myfunc(n):
-    return (n - 50)
+#halo
+def #lol

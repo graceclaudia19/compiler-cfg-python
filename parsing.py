@@ -118,6 +118,28 @@ def mergeList(list):
         l+=list[i]
     return l
 
+    
+def removeCommentHashtag(list):
+    el = 0
+    while el < len(list):
+        if list[el][0] == "#":
+            list.pop(el)
+
+        else:
+            pop = False
+            i = 0
+            while i < len(list[el]):
+                if list[el][i] == "#":
+                    pop = True 
+                if pop:
+                    list[el].pop(i)
+                else:
+                    i+=1
+            el+=1
+
+    return list
+
+
                 
 
         
