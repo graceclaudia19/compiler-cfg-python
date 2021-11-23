@@ -1,3 +1,4 @@
+# ITS GC PLAYSPACE GABOLEH DI DELET AWAS LO SMUA GUE DELET CYK.PY KALO ADAD YG DELETE!!! MAU LU HA
 def removeCommentHashtag(list):
     el = 0
     while el < len(list):
@@ -18,6 +19,29 @@ def removeCommentHashtag(list):
 
     return list
 
+def mergeList(list):
+    l = []
+    for i in range (len(list)): 
+        l+=list[i]
+    return l
+
+def removeMultilineComment(list):
+    l = mergeList(list)
+    i = 0 
+    ticks = False
+    while i < len(l)-3 :
+        if l[i]=="'" and l[i+1]=="'" and l[i+2]=="'":
+            ticks = not ticks
+        if not ticks and l[i]=="'":
+            l.pop(i+2)
+            l.pop(i+1)
+            l.pop(i)
+        if ticks:
+            l.pop(i)
+        else:
+            i+=1
+    return l
+
 
 def pyToStr(file):
     with open(file) as f:
@@ -33,4 +57,5 @@ def pyToStr(file):
         return element
 x = pyToStr('function.py')
 print(x)
-print(removeCommentHashtag(x))
+y = removeCommentHashtag(x)
+print(removeMultilineComment(y))

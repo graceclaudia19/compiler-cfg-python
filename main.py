@@ -36,27 +36,29 @@ if __name__ == "__main__":
         list = pyToStr(file)
         # check before parse process
         # print(list)
+        
+        list2 = removeCommentHashtag(list)
+
 
         qMarksTwo = True
-        list1 = strCheckTwoTick(list)
-        if (list1 == []):
+        list3 = strCheckTwoTick(list2)
+        if (list3 == []):
             valid = False
             qMarksTwo = False
             break
 
         qMarksOne = True
-        list2 = strCheckOneTick(list1)
-        if (list2 == []):
+        list4 = strCheckOneTick(list3)
+        if (list4 == []):
             valid = False
             qMarksOne = False
             break
-
-        list3 = removeCommentHashtag(list2)
-
+        
+        list5 = removeMultilineComment(list4)
 
         varCheck = True
         gram = grammarParse(cnfInput) 
-        strcyk = strCheckNumVar(list3, gram)
+        strcyk = checkNumVar(list5, gram)
         if (strcyk == []):
             valid = False
             varCheck = False
@@ -65,9 +67,9 @@ if __name__ == "__main__":
 
     # check after parse
     # buat cek yang ganti ''
-    print(list1) 
+    # print(list1) 
     # buat cek yang ganti ""
-    print(list2) 
+    # print(list2) 
     # print(strcyk) -> buat cek yg ganti number sm var
 
     # CYK ALGORITHM
@@ -87,11 +89,11 @@ if __name__ == "__main__":
             print("Not accepted")
     else:
         print("Not accepted")
-        if not(qMarksOne):
-            print('Invalid use of symbol " ') 
-        elif not (qMarksTwo):
-            print("Invalid use of symbol ' ")
-        elif not (varCheck):
-            print("Invalid variable name")
+        # if not(qMarksOne):
+        #     print('Invalid use of symbol " ') 
+        # elif not (qMarksTwo):
+        #     print("Invalid use of symbol ' ")
+        # elif not (varCheck):
+        #     print("Invalid variable name")
 
 

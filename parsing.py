@@ -86,31 +86,49 @@ def strCheckTwoTick(list):
     return l
 
 
-def strCheckNumVar(list, gram):
-    idxArr = 0
-    for el in list:
-        idx = 0
-        for i in el:
-            #untuk string
-            if not (check_value_grammar(gram, i)):
-                #untuk num
-                isInt = True
-                try:
-                    int(i)
-                except ValueError:
-                    isInt = False
-                if (isInt):
-                    list[idxArr][idx] = "num"
-                #untuk nama variabel
-                else:
-                    if (varChecker(list[idxArr][idx])):
-                        list[idxArr][idx] = "word"
-                    else:
-                        return []
+# def strCheckNumVar(list, gram):
+#     idxArr = 0
+#     for el in list:
+#         idx = 0
+#         for i in el:
+#             #untuk string
+#             if not (check_value_grammar(gram, i)):
+#                 #untuk num
+#                 isInt = True
+#                 try:
+#                     int(i)
+#                 except ValueError:
+#                     isInt = False
+#                 if (isInt):
+#                     list[idxArr][idx] = "num"
+#                 #untuk nama variabel
+#                 else:
+#                     if (varChecker(list[idxArr][idx])):
+#                         list[idxArr][idx] = "word"
+#                     else:
+#                         return []
                         
-            idx+=1
-        idxArr+=1
-    return list
+#             idx+=1
+#         idxArr+=1
+#     return list
+
+def checkNumVar(list, gram):
+    idx = 0
+    for i in list:
+        if not (check_value_grammar(gram, i)):
+            isInt = True 
+            try:
+                int(i)
+            except ValueError:
+                isInt = False
+            if (isInt):
+                list[idx] = "num"
+            else:
+                if (varChecker(list[idx])):
+                    list[idx] = "word"
+                else:
+                    return []
+
 
 def mergeList(list):
     l = []
@@ -138,6 +156,27 @@ def removeCommentHashtag(list):
             el+=1
 
     return list
+
+def removeMultilineComment(list):
+    l = mergeList(list)
+    i = 0 
+    ticks = False
+    while i < len(l)-3 :
+        if l[i]=="'" and l[i+1]=="'" and l[i+2]=="'":
+            ticks = not ticks
+        if not ticks and l[i]=="'":
+            l.pop(i+2)
+            l.pop(i+1)
+            l.pop(i)
+        if ticks:
+            l.pop(i)
+        else:
+            i+=1
+    return l
+
+
+
+
 
 
                 
