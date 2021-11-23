@@ -54,15 +54,18 @@ if __name__ == "__main__":
             qMarksOne = False
             break
         
-        list5 = removeMultilineComment(list4)
-
         varCheck = True
+
         gram = grammarParse(cnfInput) 
-        strcyk = checkNumVar(list5, gram)
-        if (strcyk == []):
+
+        list5 = strCheckNumVar(list4, gram)
+    
+        if (list5 == []):
             valid = False
             varCheck = False
             break
+        strcyk = removeMultilineComment(list5)
+        print(strcyk)
         break
 
     # check after parse
@@ -74,7 +77,7 @@ if __name__ == "__main__":
 
     # CYK ALGORITHM
     if (valid):
-        cykInput = mergeList(strcyk)
+        cykInput = strcyk
         table = cykalgo(gram, cykInput)
         # displayMatrix(table)
         top = table[len(cykInput)][0]
