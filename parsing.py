@@ -196,20 +196,16 @@ def checkNumVar(list, gram):
 def removeCommentHashtag(list):
     el = 0
     while el < len(list):
-        if list[el][0] == "#":
-            list.pop(el)
-
-        else:
-            pop = False
-            i = 0
-            while i < len(list[el]):
-                if list[el][i] == "#":
-                    pop = True 
-                if pop:
-                    list[el].pop(i)
-                else:
-                    i+=1
-            el+=1
+        pop = False
+        i = 0
+        while i < len(list[el]):
+            if list[el][i] == "#":
+                pop = True 
+            if pop:
+                list[el].pop(i)
+            else:
+                i+=1
+        el+=1
 
     return list
 
@@ -217,10 +213,10 @@ def removeMultilineComment(list):
     l = mergeList(list)
     i = 0 
     ticks = False
-    while i < len(l)-3 :
-        if l[i]=="'" and l[i+1]=="'" and l[i+2]=="'":
+    l += [".", ".", ".", "."]
+    while i < len(l)-4 :
+        if l[i]=="'" and l[i+1]=="'" and l[i+2]=="'" and l[i+3] != "'":
             ticks = not ticks
-        if not ticks and l[i]=="'":
             l.pop(i+2)
             l.pop(i+1)
             l.pop(i)
@@ -228,6 +224,11 @@ def removeMultilineComment(list):
             l.pop(i)
         else:
             i+=1
+        print(l)
+    l.pop()
+    l.pop()
+    l.pop()
+    l.pop()
     return l
 
 
