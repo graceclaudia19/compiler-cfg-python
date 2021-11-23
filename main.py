@@ -9,8 +9,15 @@ cnfInput = "CNF.txt"
 # CNF PARSINNG
 # terminate (returning empty list) if invalid varname or invalid use of ticks (' and "),
 # if all valid, it will return array and proceed to cyk algorithm
+file = False
+while (not file):
+    filename = input("Masukkan nama file yang akan dicek dalam .txt/.py: ")
+    if (filename!=""):
+        file = True
+    else:
+        print("Silahkan masukkan nama file terlebih dahulu")
+
 valid = True
-filename = input("Masukkan nama file yang akan dicek dalam .txt/.py: ")
 while (valid):
     file = "function.py"
     list = pyToStr(file)
