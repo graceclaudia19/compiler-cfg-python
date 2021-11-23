@@ -39,7 +39,7 @@ INPUT_rule -> input
 ]_rule -> ]
 (_rule -> (
 )_rule -> )
-{    _rule -> {    
+{_rule -> {
 }_rule -> }
 =_rule -> =
 >_rule -> >
@@ -61,6 +61,7 @@ ZERODIVISIONERROR_rule -> ZeroDivisionError
 IMPORTERROR_rule -> ImportError
 NAMEERROR_rule -> NameError
 TYPEERROR_rule -> TypeError
+EXCEPTION_rule -> Exception
 MAIN_STATES -> MAIN_STATES MAIN_STATES
 MAIN_STATES -> IF_STATES ELSE_STATES
 MAIN_STATES -> IF_STATES ELIF_STATES
@@ -524,6 +525,7 @@ SQUARE_OPEN -> [
 SQUARE_CLOSE -> ]
 REGULAR_OPEN -> (
 REGULAR_CLOSE -> )
+CURLY_OPEN -> {
 CURLY_CLOSE -> }
 EQ -> =
 GREATER_THAN -> >
@@ -556,6 +558,7 @@ ERROR -> ZeroDivisionError
 ERROR -> ImportError
 ERROR -> NameError
 ERROR -> TypeError
+ERROR -> Exception
 IN -> in
 CLASS -> class
 IS -> is
