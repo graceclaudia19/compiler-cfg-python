@@ -61,14 +61,14 @@ if __name__ == "__main__":
 
         gram = grammarParse(cnfInput) 
 
-        print(list5)
+        # print(list5)
         strcyk = checkNumVar(list5, gram)
         if (list5 == []):
             valid = False
             varCheck = False
             break
     
-        print(strcyk)
+        # print(strcyk)
         break
 
     # check after parse
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     # print(strcyk) -> buat cek yg ganti number sm var
 
     # CYK ALGORITHM
-    if (valid):
+    if (valid) and states(filename):
         cykInput = strcyk
         if cykInput == []:
             print("Accepted")

@@ -33,6 +33,137 @@ def displayMatrix (matrix):
             print(matrix[i][j], end= " ")
         print()
 
+def states(file):    
+    f = open(file)
+    words = {'def' : "DEF" , 'return' : "RETURN" , "while" : "WHILE" , "break" : "BREAK" , "continue" : "CONTINUE" , "for" : "FOR"}
+
+    DEF,WHILE,FOR = [],[],[]
+    result = []
+
+    def tabCounter(s):
+        count = 0
+        for i in s:
+            if i == ' ':
+                count+=1
+            else:
+                break
+        return count//4
+
+    def containWord(s):
+        string = -1
+        word = ""
+        for i in s:
+            if (i == "'" or i == '"'): # salah penutup ga penting bakal di handle di cyk
+                string *= -1
+                continue
+            if string == -1:
+                if i == " ":
+                    if word in words:
+                        return words[word]
+                    word = ""
+                else:
+                    word += i
+        if word in words:
+            return words[word]
+        return "NOTHING"
+
+
+    comment = False
+    for line in f.readlines():
+        if line.strip() != '' and line.strip()[0] != '#' and line.strip()[:3] != "'''" and line.strip()[-3:] != "'''" and line.strip()[-3:] != '"""' and line.strip()[-3:] != '"""':
+            result.append(line.replace('\n',''))
+        else:
+            if (line.strip()[:3] == "'''" or line.strip()[:3] == '"""') and not comment:
+                comment = True
+            elif (line.strip()[-3:] == "'''" or line.strip()[-3:] == '"""') and comment:
+                comment = False
+    # print(result)
+    types = ([containWord(i) for i in result])
+    indents = ([tabCounter(i) for i in result])
+
+    status = True
+
+    for i in range(len(types)):
+        # print(types[i])
+        if types[i] == "DEF":
+            if tabCounter(result[i]) not in DEF:
+                DEF.append(tabCounter(result[i]))
+            else:
+                for typ in [DEF,WHILE,FOR]:
+                    for el in typ:
+                        if el > tabCounter(result[i]):
+                            typ.remove(el)
+        elif types[i] == "FOR":
+            if tabCounter(result[i]) not in FOR:
+                FOR.append(tabCounter(result[i]))
+            else:
+                for typ in [DEF,WHILE,FOR]:
+                    for el in typ:
+                        if el > tabCounter(result[i]):
+                            typ.remove(el)
+        elif types[i] == "WHILE":
+            if tabCounter(result[i]) not in WHILE:
+                WHILE.append(tabCounter(result[i]))
+            else:
+                for typ in [DEF,WHILE,FOR]:
+                    for el in typ:
+                        if el > tabCounter(result[i]):
+                            typ.remove(el)
+        elif types[i] == "BREAK" or types[i] == "CONTINUE":
+            temp = tabCounter(result[i])
+            if WHILE == [] and FOR == []:
+                status = False
+                continue
+            ok = False
+            for el in WHILE:
+                if el < temp:
+                    ok = True
+                    break
+                else:
+                    status = False
+                    break
+            if not ok:
+                for el in FOR:
+                    if el < temp:
+                        break
+                    else:
+                        status = False
+                        break
+        elif types[i] == "RETURN":
+            temp = tabCounter(result[i])
+            if DEF == []:
+                status = False
+                continue
+            for el in DEF:
+                if el < temp:
+                    continue
+                else:
+                    status = False
+                    break
+        elif types[i] == "NOTHING":
+            for typ in [DEF,WHILE,FOR]:
+                for el in typ:
+                    if el > tabCounter(result[i]):
+                        typ.remove(el)
+        # print(tabCounter(result[i]))
+        # print("DEF :",DEF)
+        # print("WHILE :",WHILE)
+        # print("FOR :",FOR)
+        # print()
+        if not status:
+            # print(result[i]," ",i)
+            break
+
+
+    # print("DEF :",DEF)
+    # print("WHILE :",WHILE)
+    # print("FOR :",FOR)
+    if status:
+        return True
+    else:
+        return False
+
+
 def cykalgo(gramParsed, word):
     table = [ [ '' for i in range(len(word)) ] for j in range(len(word)+1) ]
     rules = gramParsed

@@ -161,7 +161,7 @@ def checkNumVar(list, gram):
                 if (varChecker(list[idx])):
                     list[idx] = "word"
                 else:
-                    print(i)
+                    # print(i)
                     return []
         idx+=1
     return list
@@ -187,7 +187,7 @@ def checkNumVar(list, gram):
                 if (varChecker(list[idx])):
                     list[idx] = "word"
                 else:
-                    print(i)
+                    # print(i)
                     return []
         idx+=1
     return list
@@ -224,7 +224,7 @@ def removeMultilineComment(list):
             l.pop(i)
         else:
             i+=1
-        print(l)
+        # print(l)
     l.pop()
     l.pop()
     l.pop()
