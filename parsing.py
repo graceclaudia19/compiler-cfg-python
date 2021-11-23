@@ -11,27 +11,12 @@ def varChecker(varName):
         return True
     return False
 
-def check_value_grammarArrOfArrInput(gramParsed, value):
-    exist = False
-    for key, values in gramParsed.items():
-        for val in values:
-            if val == value:
-                exist = True
-    return exist
-
 def check_value_grammar(gramParsed, value):
     exist = False
     for key, values in gramParsed.items():
         for val in values:
             if val == value:
                 exist = True
-    return exist
-
-def check_value_grammarArrInput(gramParsed, value):
-    exist = False
-    for key, values in gramParsed.items():
-        if values == value:
-            exist = True
     return exist
 
 def get_key(gramParsed, value, elementM):
@@ -101,40 +86,40 @@ def strCheckTwoTick(list):
     return l
 
 
-def strCheckNumVar(list, gram):
-    idxArr = 0
-    for el in list:
-        idx = 0
-        for i in el:
-            #untuk string
-            if not (check_value_grammar(gram, i)):
-                #untuk num
-                isInt = True
-                try:
-                    int(i)
-                except ValueError:
-                    isInt = False
-                if (isInt):
-                    list[idxArr][idx] = "num"
-                #untuk nama variabel
-                else:
-                    if (varChecker(list[idxArr][idx])):
-                        list[idxArr][idx] = "word"
-                    else:
-                        return []
+# def strCheckNumVar(list, gram):
+#     idxArr = 0
+#     for el in list:
+#         idx = 0
+#         for i in el:
+#             #untuk string
+#             if not (check_value_grammar(gram, i)):
+#                 #untuk num
+#                 isInt = True
+#                 try:
+#                     int(i)
+#                 except ValueError:
+#                     isInt = False
+#                 if (isInt):
+#                     list[idxArr][idx] = "num"
+#                 #untuk nama variabel
+#                 else:
+#                     if (varChecker(list[idxArr][idx])):
+#                         list[idxArr][idx] = "word"
+#                     else:
+#                         return []
                         
-            idx+=1
-        idxArr+=1
-    return list
+#             idx+=1
+#         idxArr+=1
+#     return list
 
 def checkNumVar(list, gram):
     idx = 0
     for i in list:
-        if not (check_value_grammarArrInput(gram, i)):
+        if not (check_value_grammar(gram, i)):
             isInt = True 
             try:
                 int(i)
-            except ValueError:
+            except:
                 isInt = False
             if (isInt):
                 list[idx] = "num"
@@ -142,15 +127,36 @@ def checkNumVar(list, gram):
                 if (varChecker(list[idx])):
                     list[idx] = "word"
                 else:
+                    print(i)
                     return []
+        idx+=1
     return list
-
 
 def mergeList(list):
     l = []
     for i in range (len(list)): 
         l+=list[i]
     return l
+
+def checkNumVar(list, gram):
+    idx = 0
+    for i in list:
+        if not (check_value_grammar(gram, i)):
+            isInt = True 
+            try:
+                int(i)
+            except:
+                isInt = False
+            if (isInt):
+                list[idx] = "num"
+            else:
+                if (varChecker(list[idx])):
+                    list[idx] = "word"
+                else:
+                    print(i)
+                    return []
+        idx+=1
+    return list
 
     
 def removeCommentHashtag(list):

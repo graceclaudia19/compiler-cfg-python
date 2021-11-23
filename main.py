@@ -13,6 +13,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     filename = args.pythonfile
+
     # CFG TO CNF
     convertCFG("CFG.txt")
     cnfInput = "CNF.txt"
@@ -58,13 +59,15 @@ if __name__ == "__main__":
 
         gram = grammarParse(cnfInput) 
 
-        list5 = strCheckNumVar(list4, gram)
-    
+        list5 = removeMultilineComment(list4)
+
+        print(list5)
+        strcyk = checkNumVar(list5, gram)
         if (list5 == []):
             valid = False
             varCheck = False
             break
-        strcyk = removeMultilineComment(list5)
+    
         print(strcyk)
         break
 
@@ -78,18 +81,21 @@ if __name__ == "__main__":
     # CYK ALGORITHM
     if (valid):
         cykInput = strcyk
-        table = cykalgo(gram, cykInput)
-        # displayMatrix(table)
-        top = table[len(cykInput)][0]
-        acc = False
-        for i in top:
-            if i == 'MAIN_STATES':
-                acc = True
-                break
-        if (acc):
+        if cykInput == []:
             print("Accepted")
         else:
-            print("Not accepted")
+            table = cykalgo(gram, cykInput)
+            # displayMatrix(table)
+            top = table[len(cykInput)][0]
+            acc = False
+            for i in top:
+                if i == 'MAIN_STATES':
+                    acc = True
+                    break
+            if (acc):
+                print("Accepted")
+            else:
+                print("Not accepted")
     else:
         print("Not accepted")
         # if not(qMarksOne):

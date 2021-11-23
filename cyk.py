@@ -10,6 +10,7 @@ def grammarParse(grammar):
                 gram[line[0].strip()] = [line[1].replace('\n','').strip()]
     return gram
 
+
 def check_value_grammar(gramParsed, value):
     exist = False
     for key, values in gramParsed.items():
