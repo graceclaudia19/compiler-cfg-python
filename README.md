@@ -20,7 +20,7 @@ Program ini berisi implementasi compiler untuk Python untuk statement-statement 
     ```
     git clone https://github.com/graceclaudia19/compiler-cfg-python.git
     ```
-2. Masukkan kode yang ingin diperiksa syntax-nya pada file `test.py`
+2. Masukkan kode yang ingin diperiksa syntax-nya pada file `test.py`, anda juga dapat menggunakan file python lainnya dengan meletakkan file sejajar dengan program utama `main.py`
 
 3. Jalankan terminal, pastikan berada di root folder kemudian jalankan command berikut
     ```
