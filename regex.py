@@ -13,8 +13,8 @@ def regex(file):
     f.close()
 
     def removeComments(string):
-        string = re.sub(re.compile("[\n]+[ \t]*\'\'\'[^((?!\'\'\').)*$]*\'\'\'",re.DOTALL ) ,"" ,string) # remove all occurrences streamed comments (/*COMMENT */) from string
-        string = re.sub(re.compile('[\n]+[ \t]*\"\"\"[^((?!\"\"\").)*$]*\"\"\"',re.DOTALL ) ,"" ,string)
+        string = re.sub(re.compile("[\n]+[ \t]*(\'){3}(.*?)(\'){3}",re.DOTALL ) ,"" ,string) # remove all occurrences streamed comments (/*COMMENT */) from string
+        string = re.sub(re.compile('[\n]+[ \t]*(\"){3}(.*?)(\"){3}',re.DOTALL ) ,"" ,string)
         string = re.sub(re.compile("[\n \t]*#.*"), "\n", string) # remove all occurrence single-line comments (//COMMENT\n ) from string
         return string
         
@@ -23,4 +23,4 @@ def regex(file):
     file.close()
     return mergeList(pyToStr('temp.txt'))
 
-#print(regex('py.py'))
+print(regex('py.py'))
