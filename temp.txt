@@ -1,10 +1,24 @@
 
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Invalid input. Try typing 'python main.py <filename>.py'\n")
+        sys.exit(1)
     parser = argparse.ArgumentParser()
     parser.add_argument("pythonfile")
     args = parser.parse_args()
 
     filename = args.pythonfile
 
-        convertCFG("CFG.txt") 
+
+    convertCFG("CFG.txt")
     cnfInput = "CNF.txt"
+
+
+
+
+    valid = True
+    while (valid):
+        file = filename
+
+        list = pyToStr(file)
+
