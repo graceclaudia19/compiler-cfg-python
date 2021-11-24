@@ -22,7 +22,6 @@ IS_rule -> is
 AND_rule -> and
 OR_rule -> or
 NOT_rule -> not
-=_rule -> =
 >_rule -> >
 <_rule -> <
 IF_rule -> if
@@ -47,7 +46,6 @@ INPUT_rule -> input
 '_rule -> '
 "_rule -> "
 #_rule -> #
-ENDLINE_rule -> endline
 RANGE_rule -> range
 PRINT_rule -> print
 !_rule -> !

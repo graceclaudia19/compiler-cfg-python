@@ -20,16 +20,16 @@ Program ini berisi implementasi compiler untuk Python untuk statement-statement 
     ```
     git clone https://github.com/graceclaudia19/compiler-cfg-python.git
     ```
-2. Masukkan kode yang ingin diperiksa syntax-nya pada file `py.py`
+2. Masukkan kode yang ingin diperiksa syntax-nya pada file `test.py`
 
 3. Jalankan terminal, pastikan berada di root folder kemudian jalankan command berikut
     ```
-    python main.py py.py
+    python main.py test.py
     ```
 4. Hasil pemeriksaan Syntax akan keluar, apabila diterima akan mengembalikan `Accepted`, sebaliknya mengembalikan `Not accepted`
 
     ```
-    ...directory...\compiler-cfg-python> python main.py py.py
+    ...directory...\compiler-cfg-python> python main.py test.py
     Accepted
     ```
 ## Folder Structure
@@ -43,8 +43,9 @@ compiler-cfg-python/
 │  ├─ convertcfg.py
 │  ├─ cyk.py
 ├─ main.py
-├─ py.py
+├─ test.py
 ├─ README.md
+├─ .gitignore
 ```
 
 ## Authors
