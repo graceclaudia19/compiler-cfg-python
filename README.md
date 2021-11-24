@@ -26,7 +26,7 @@ Program ini berisi implementasi compiler untuk Python untuk statement-statement 
     ```
     python main.py test.py
     ```
-4. Hasil pemeriksaan Syntax akan keluar, apabila diterima akan mengembalikan `Accepted`, sebaliknya mengembalikan `Not accepted`
+4. Hasil pemeriksaan Syntax akan keluar, apabila diterima akan mengembalikan `Accepted`, sebaliknya mengembalikan `Syntax Error`
 
     ```
     ...directory...\compiler-cfg-python> python main.py test.py

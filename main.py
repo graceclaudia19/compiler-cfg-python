@@ -66,6 +66,6 @@ if __name__ == "__main__":
             if (acc):
                 print("Accepted")
             else:
-                print("Not accepted")
+                print("Syntax Error")
     else:
-        print("Not accepted")
+        print("Syntax Error")
