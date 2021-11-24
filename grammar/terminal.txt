@@ -22,7 +22,6 @@ is
 and
 or
 not
-=
 >
 <
 if
@@ -47,7 +46,6 @@ input
 '
 "
 #
-endline
 range
 print
 !
