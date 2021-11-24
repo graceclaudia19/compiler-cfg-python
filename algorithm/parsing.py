@@ -1,4 +1,4 @@
-from cyk import grammarParse 
+from algorithm.cyk import grammarParse 
 
 #FUNCTION PENGECEKAN NAMA VARIABEL
 def varChecker(varName):

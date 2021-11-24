@@ -1,8 +1,9 @@
-from convertcfg import *
-from parsing import *
-from cyk import *
+from algorithm.convertcfg import *
+from algorithm.parsing import *
+from algorithm.cyk import *
 import argparse
 import sys
+import os
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -15,8 +16,8 @@ if __name__ == "__main__":
     filename = args.pythonfile
 
     # CFG TO CNF
-    convertCFG("CFG.txt")
-    cnfInput = "CNF.txt"
+    convertCFG(os.getcwd() + '\grammar\CFG.txt')
+    cnfInput = os.getcwd() + '\grammar\CNF.txt'
 
     # CNF PARSINNG
     # terminate (returning empty list) if invalid varname or invalid use of ticks (' and "),

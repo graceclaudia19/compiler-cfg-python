@@ -1,3 +1,5 @@
+import os
+
 def getCFG(filename):
     '''
     get CFG from file
@@ -129,9 +131,9 @@ def convertCFG(filename):
     '''
     convert CFG to CNF and save its result to "CNF.txt"
     '''
-    file = open("CNF.txt", 'w')
+    file = open(os.getcwd() + '\grammar\\CNF.txt', 'w')
     cfg = getCFG(filename)
-    terminals, rules = getTerminals("terminal.txt")
+    terminals, rules = getTerminals(os.getcwd() + '\grammar\\terminal.txt')
     cfg = removeUnitProd(cfg, terminals)
     for rule in rules:
         cfg.append(rule)
