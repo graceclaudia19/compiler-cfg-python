@@ -1,13 +1,11 @@
 # **Python** Syntax Compiler :desktop_computer:
 
-Dalam proses pembuatan program dari sebuah bahasa menjadi instruksi yang dapat dieksekusi oleh mesin, terdapat pemeriksaan sintaks atau kompilasi bahasa yang dibuat oleh programmer. Kompilasi ini bertujuan untuk memastikan instruksi yang dibuat oleh programmer mengikuti aturan yang sudah ditentukan oleh bahasa tersebut.
-
-Program ini berisi implementasi compiler untuk Python untuk statement-statement dan sintaks-sintaks bawaan Python. Konsep CFG digunakan untuk pengerjaan compiler yang mengevaluasi syntax program. Untuk nama variabel dalam program, digunakan FA.
-
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+Dalam proses pembuatan program dari sebuah bahasa menjadi instruksi yang dapat dieksekusi oleh mesin, terdapat pemeriksaan sintaks atau kompilasi bahasa yang dibuat oleh programmer. Kompilasi ini bertujuan untuk memastikan instruksi yang dibuat oleh programmer mengikuti aturan yang sudah ditentukan oleh bahasa tersebut.
+
+Program ini berisi implementasi compiler untuk Python untuk statement-statement dan sintaks-sintaks bawaan Python. Konsep CFG digunakan untuk pengerjaan compiler yang mengevaluasi syntax program. Untuk nama variabel dalam program, digunakan FA.
 
 ## Getting Started
 
@@ -34,6 +32,20 @@ An in-depth paragraph about your project and overview of use.
     ...directory...\compiler-cfg-python> python main.py py.py
     Accepted
     ```
+## Folder Structure
+```
+compiler-cfg-python/
+├─ grammar/
+│  ├─ CFG.txt
+│  ├─ CNF.txt
+│  ├─ terminal.txt
+├─ algorithm/
+│  ├─ convertcfg.py
+│  ├─ cyk.py
+├─ main.py
+├─ py.py
+├─ README.md
+```
 
 ## Authors
 
