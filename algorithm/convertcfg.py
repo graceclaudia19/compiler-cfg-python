@@ -147,4 +147,3 @@ def convertCFG(filename):
         str = (' '.join(prod)).replace(' ', ' -> ', 1)
         file.write(str + "\n")
     file.close()
-    return

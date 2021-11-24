@@ -42,26 +42,6 @@ def pyToStr(file):
         return element
 
 #check ' trus ganti jd word
-def strCheckOneTick(list):
-    ticks = False
-    l = []
-    for el in list:
-        li = []
-        for i in el:
-            if i == "'":
-                ticks = not ticks
-                li.append(i)
-                if ticks:
-                    li.append("word")
-            elif ticks:
-                pass
-            else:
-                li.append(i)
-        l.append(li)
-    if (ticks):
-        l = []
-    return l
-
 def strCheckOneTick2(list):
     ticks = False
     li = []
@@ -82,26 +62,6 @@ def strCheckOneTick2(list):
             
 
 #check " trus ganti jd word
-def strCheckTwoTick(list):
-    ticks = False
-    l = []
-    for el in list:
-        li = []
-        for i in el:
-            if i == '"':
-                ticks = not ticks
-                li.append(i)
-                if ticks:
-                    li.append("word")
-            elif ticks:
-                pass
-            else:
-                li.append(i)
-        l.append(li)
-    if (ticks):
-        l = []
-    return l
-
 def strCheckDoubleTick(list):
     ticks = False
     li = []
@@ -118,53 +78,6 @@ def strCheckDoubleTick(list):
     if (ticks):
         li = '.'
     return li
-
-
-# def strCheckNumVar(list, gram):
-#     idxArr = 0
-#     for el in list:
-#         idx = 0
-#         for i in el:
-#             #untuk string
-#             if not (check_value_grammar(gram, i)):
-#                 #untuk num
-#                 isInt = True
-#                 try:
-#                     int(i)
-#                 except ValueError:
-#                     isInt = False
-#                 if (isInt):
-#                     list[idxArr][idx] = "num"
-#                 #untuk nama variabel
-#                 else:
-#                     if (varChecker(list[idxArr][idx])):
-#                         list[idxArr][idx] = "word"
-#                     else:
-#                         return []
-                        
-#             idx+=1
-#         idxArr+=1
-#     return list
-
-def checkNumVar(list, gram):
-    idx = 0
-    for i in list:
-        if not (check_value_grammar(gram, i)):
-            isInt = True 
-            try:
-                int(i)
-            except:
-                isInt = False
-            if (isInt):
-                list[idx] = "num"
-            else:
-                if (varChecker(list[idx])):
-                    list[idx] = "word"
-                else:
-                    # print(i)
-                    return []
-        idx+=1
-    return list
 
 def mergeList(list):
     l = []
@@ -187,7 +100,6 @@ def checkNumVar(list, gram):
                 if (varChecker(list[idx])):
                     list[idx] = "word"
                 else:
-                    # print(i)
                     return '.'
         idx+=1
     return list
@@ -224,40 +136,8 @@ def removeMultilineComment(list):
             l.pop(i)
         else:
             i+=1
-        # print(l)
     l.pop()
     l.pop()
     l.pop()
     l.pop()
     return l
-
-
-
-
-
-
-                
-
-        
-
-# KALO DIA GAGAL DI SATU TEMPAT DIA LANGSUNG KEMBALIIN LIST KOSONG -> END PROGRAM DI MAIN
-
-# file = "function.py"
-# list = pyToStr(file)
-
-# print("original list")
-# print(list)
-
-# print("list without ' ")
-# list1 = strCheckOneTick(list)
-# print(list1)
-
-# print('list without " ')
-# list2 = strCheckTwoTick(list1)
-# print(list2)
-
-# gram = grammarParse('CNF.txt') 
-# strcyk = strCheckNumVar(list2, gram)
-# print(strcyk)
-
-

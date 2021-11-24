@@ -53,7 +53,7 @@ def states(file):
         string = -1
         word = ""
         for i in s:
-            if (i == "'" or i == '"'): # salah penutup ga penting bakal di handle di cyk
+            if (i == "'" or i == '"'): #salah penutup ga penting bakal di handle di cyk
                 string *= -1
                 continue
             if string == -1:
@@ -77,14 +77,12 @@ def states(file):
                 comment = True
             elif (line.strip()[-3:] == "'''" or line.strip()[-3:] == '"""') and comment:
                 comment = False
-    # print(result)
     types = ([containWord(i) for i in result])
     indents = ([tabCounter(i) for i in result])
 
     status = True
 
     for i in range(len(types)):
-        # print(types[i])
         if types[i] == "DEF":
             if tabCounter(result[i]) not in DEF:
                 DEF.append(tabCounter(result[i]))
@@ -145,19 +143,9 @@ def states(file):
                 for el in typ:
                     if el > tabCounter(result[i]):
                         typ.remove(el)
-        # print(tabCounter(result[i]))
-        # print("DEF :",DEF)
-        # print("WHILE :",WHILE)
-        # print("FOR :",FOR)
-        # print()
         if not status:
-            # print(result[i]," ",i)
             break
 
-
-    # print("DEF :",DEF)
-    # print("WHILE :",WHILE)
-    # print("FOR :",FOR)
     if status:
         return True
     else:
@@ -206,24 +194,13 @@ def cykalgo(gramParsed, word):
                         
                         #pengecekan apabila substring tidak kosong atau tidak sama panjangnya dengan kata aslinya
                         if (len(front)!=0 and len(other)!=0 and len(front)!=i and len(other)!=i):
-                            # print("front", front)
-                            # print("other", other)
                             substrings.append(front)
                             substrings.append(other)
                         #penambahan x setiap kali menambah panjang substring depan
                         x+=1
-                        # print("substrings")
-
-                        # print(substrings)
                     #untuk setiap substring akan di iterate dan dicari terminalnya
                     for sub in range (0,len(substrings),2):
                         keySubstr = []
-                        # print("keyRules",keyRules)
-                        # print(len(substrings[sub][0]))
-                    
-                        #pengecekan apakah elemen FRONT dari substring lebih dari 1 atau tidak, jika iya maka akan di join untuk pembacaan
-                        #pengecekan apakah elemen OTHER dari substring lebih dari 1 atau tidak, jika iya maka akan di join untuk pembacaan
-
                         #kondisi front lebih dri 1
                         if (len(substrings[sub])!=1):
                             #dijoin
@@ -247,15 +224,11 @@ def cykalgo(gramParsed, word):
                             #kondisi other 1
                             else:
                                 keySubstr.append(keyRules[substrings[sub+1][0]])
-                        # print("keysubstr")
-                        # print(keySubstr)
                         # perkalian silang antar parsingan elemen misalnya BA dan BC
                         elements = [a+" "+b for a in keySubstr[0] for b in keySubstr[1]]
                         for el in elements:
-                            # print("element",el)
                             # dengan menggunakan join mencari apakah ada key value
                             keyJoin = " ".join(el)
-                            # print("keyjoin", keyJoin)
                             # jika value ada di grammar
                             if (check_value_grammar(rules, el)):
                                 #append key ke element dari table
@@ -267,25 +240,8 @@ def cykalgo(gramParsed, word):
                             else:
                             # selain itu pass
                                 pass
-                    # print(elementM)
                     table[i][j] = elementM
-                    # print(keyRules)
                         # menambahkan info terminal elemen tersebut untuk elemen selanjutnya
                     strJoin = " ".join(str)
                     keyRules[strJoin] = elementM
-                    # print("elementM")
-                    # print(elementM)
-                    # print(keyRules)
     return table
-
-# word = ["b","a","a","b","a"]
-# gram = grammarParse('CNF.txt')
-# word = ['word', '=', 'num', 'elif', '(', 'word', '=', '=', 'num', ')', ':', 'print', '(', '"', 'word', '"', ')']
-# table = cykalgo(gram,word)
-
-# displayMatrix(table)
-# top = table[len(word)][0]
-# for i in top:
-#     if i == 'MAIN_STATES':
-#         print("yey di acc")
-# print("bye")

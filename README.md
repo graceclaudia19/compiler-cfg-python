@@ -32,6 +32,7 @@ Program ini berisi implementasi compiler untuk Python untuk statement-statement 
     ...directory...\compiler-cfg-python> python main.py test.py
     Accepted
     ```
+ **NB : Durasi pengecekan program bervariasi tergantung panjang kode yang akan diperiksa, apabila memakan waktu yang lama harap ditunggu karena program pasti jalan.**
 ## Folder Structure
 ```
 compiler-cfg-python/
@@ -58,9 +59,8 @@ compiler-cfg-python/
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+Inspiration, reading source, etc.
+* [CYK Algorithm by EducationAboutStuff](https://www.youtube.com/watch?v=VTH1k-xiswM)
+* [geeks-for-geeks](https://www.geeksforgeeks.org/converting-context-free-grammar-chomsky-normal-form/)
+* [The CYK Algorithm - UC Davis](https://web.cs.ucdavis.edu/~rogaway/classes/120/winter12/CYK.pdf)
+* [nesoacademy](https://www.youtube.com/watch?v=FNPSlnj3Vt0&list=PLBlnK6fEyqRgp46KUv4ZY69yXmpwKOIev&index=79)
